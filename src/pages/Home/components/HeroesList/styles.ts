@@ -10,6 +10,18 @@ export const HeroActions = styled.div`
   align-items: center;
 
   margin-bottom: 2rem;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    p {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
 `;
 
 export const HeroList = styled.div`

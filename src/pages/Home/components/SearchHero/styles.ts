@@ -4,12 +4,18 @@ export const SearchHeroContainer = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  margin-top: 2rem;
+
+  p {
+    margin-top: 1rem;
+  }
 `;
 
 export const InputFake = styled.div`
   width: 50%;
   padding: 1rem 2rem;
-  background-color: ${(props) => props.theme.colors["brand-red-light"]};
+  background-color: ${(props) => props.theme.colors["base-brand-red-light"]};
   border-radius: 999px;
 
   display: flex;
@@ -18,7 +24,7 @@ export const InputFake = styled.div`
   margin-top: 2rem;
 
   svg {
-    color: ${(props) => props.theme.colors["brand-red"]};
+    color: ${(props) => props.theme.colors["base-brand-red"]};
   }
 
   input {
