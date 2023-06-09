@@ -7,7 +7,6 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        font-size: 66px;
         font-family: Work Sans;
     }
 `;
