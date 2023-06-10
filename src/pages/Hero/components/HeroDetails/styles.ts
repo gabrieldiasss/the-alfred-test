@@ -4,22 +4,31 @@ export const HeroDetailsContainer = styled.div`
   display: flex;
   margin-top: 3rem;
   justify-content: space-between;
+
+  gap: 2rem;
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+  }
 `;
 
 export const HeroInfo = styled.div`
-
-  min-width: 300px;
+  max-width: 400px;
 
   p {
     margin-top: 2rem;
-    max-width: 300px;
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
   }
 `;
 
 export const HeroImage = styled.div`
   img {
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
     border-radius: 8px;
   }
 `;

@@ -12,9 +12,10 @@ export const FooterContent = styled.div`
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
+  width: 90%;
 
   img {
-    width: 200px;
+    max-width: 100px;
     cursor: pointer;
   }
 `;

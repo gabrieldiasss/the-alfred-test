@@ -28,8 +28,6 @@ export function HeroesList() {
       .then((response) => setHeroes(response.data.data.results));
   }, []);
 
-  console.log(heroesFavorite);
-
   /* const order = () => {
     let newHeroes = [...heroes];
 
@@ -72,11 +70,11 @@ export function HeroesList() {
           </>
         )}
 
-        {heroesFavorite.length <= 0 && (
-          <RegularText style={{ flex: "1 1" }} size="l">
+        {/* {heroesFavorite.length <= 0 && (
+          <RegularText size="l">
             Nenhum herói na lista de favoritos =(
           </RegularText>
-        )}
+        )} */}
       </HeroList>
     </HeroesListContainer>
   );
