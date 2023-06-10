@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { RegularText } from "../../../../components/Typography";
 import { Hero } from "../HeroesList";
 import { HeroCardContainer, HeroInfo } from "./styles";
@@ -10,8 +11,10 @@ interface HeroCardProps {
 
 export function HeroCard({ hero, onFavorite }: HeroCardProps) {
 
+  const navigate = useNavigate()
+
   return (
-    <HeroCardContainer>
+    <HeroCardContainer onClick={() => navigate(`/${hero.id}`)} >
       <img src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`} alt="" />
 
       <HeroInfo>

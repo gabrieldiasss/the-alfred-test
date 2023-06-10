@@ -1,13 +1,15 @@
 import { HeroesList } from "./components/HeroesList";
 import { SearchHero } from "./components/SearchHero";
-import { HomeContainer } from "./styles";
+import { HomeContainer, HomeContent } from "./styles";
 
 export function Home() {
   return (
     <HomeContainer>
-      <SearchHero />
+      <HomeContent>
+        <SearchHero />
 
-      <HeroesList />
+        <HeroesList />
+      </HomeContent>
     </HomeContainer>
   );
 }

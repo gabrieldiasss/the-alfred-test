@@ -24,7 +24,7 @@ export function HeroesList() {
 
   useEffect(() => {
     api
-      .get(`/characters?ts=${time}&apikey=${publicKey}&hash=${hash}`)
+      .get(`/characters`)
       .then((response) => setHeroes(response.data.data.results));
   }, []);
 

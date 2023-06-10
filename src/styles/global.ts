@@ -8,5 +8,10 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         font-family: Work Sans;
+        height: 100%;
+    }
+
+    svg {
+        color: ${({ theme }) => theme.colors["base-brand-red"]};
     }
 `;
