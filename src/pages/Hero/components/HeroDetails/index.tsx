@@ -10,21 +10,23 @@ import {
 } from "./styles";
 import { FaBook } from "react-icons/fa";
 import { BiMoviePlay } from "react-icons/bi";
-import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
 import { IHeroDetails } from "../..";
 import { HeroStats } from "../HeroStats";
+import { HeartFavorite } from "@/components/HeartFavorite";
 
 interface HeroDetailsProps {
   hero: IHeroDetails;
 }
 
 export function HeroDetails({ hero }: HeroDetailsProps) {
+
   return (
     <HeroDetailsContainer>
       <HeroInfo>
         <HeroHeader>
           <TitleText size="l">{hero.name}</TitleText>
-          <AiOutlineHeart size={28} />
+          <HeartFavorite hero={hero} size={30} />
         </HeroHeader>
 
         <RegularText size="l">{hero.description}</RegularText>

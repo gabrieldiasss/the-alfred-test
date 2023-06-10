@@ -47,8 +47,6 @@ export function Hero() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(comics);
-
   return (
     <HeroContainer>
       <HeroContent>

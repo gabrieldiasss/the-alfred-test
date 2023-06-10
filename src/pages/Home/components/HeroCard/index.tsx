@@ -2,24 +2,28 @@ import { useNavigate } from "react-router-dom";
 import { RegularText } from "../../../../components/Typography";
 import { Hero } from "../HeroesList";
 import { HeroCardContainer, HeroInfo } from "./styles";
-import { AiOutlineHeart } from "react-icons/ai";
+import { useHero } from "@/contexts/useFavorite";
+import { HeartFavorite } from "@/components/HeartFavorite";
 
 interface HeroCardProps {
-  hero: Hero
-  onFavorite: (heroFavorite: Hero) => void 
+  hero: Hero;
 }
 
-export function HeroCard({ hero, onFavorite }: HeroCardProps) {
-
-  const navigate = useNavigate()
+export function HeroCard({ hero }: HeroCardProps) {
+  const { heroInList } = useHero();
+  const navigate = useNavigate();
 
   return (
-    <HeroCardContainer onClick={() => navigate(`/${hero.id}`)} >
-      <img src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`} alt="" />
+    <HeroCardContainer>
+      <img
+        onClick={() => navigate(`/${hero.id}`)}
+        src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
+        alt=""
+      />
 
       <HeroInfo>
         <RegularText>{hero.name}</RegularText>
-        <AiOutlineHeart onClick={() => onFavorite(hero)} size={22} color="#FF1510" />
+        <HeartFavorite hero={hero} size={22} />
       </HeroInfo>
     </HeroCardContainer>
   );

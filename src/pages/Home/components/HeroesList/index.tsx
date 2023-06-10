@@ -6,6 +6,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { useEffect } from "react";
 import { useState } from "react";
 import { api } from "@/lib/axios";
+import { useHero } from "@/contexts/useFavorite";
 
 export interface Hero {
   id: number;
@@ -18,14 +19,16 @@ export interface Hero {
 
 export function HeroesList() {
   const [heroes, setHeroes] = useState<Hero[]>([]);
-  const [heroesFavorite, setHeroesFavorite] = useState<Hero[]>([]);
   const [onlyFavorite, setOnlyFavorites] = useState(false);
+  const { handleFavoriteHero, heroesFavorite } = useHero()
 
   useEffect(() => {
     api
       .get(`/characters`)
       .then((response) => setHeroes(response.data.data.results));
   }, []);
+
+  console.log(heroesFavorite)
 
   /* const order = () => {
     let newHeroes = [...heroes];
@@ -34,29 +37,6 @@ export function HeroesList() {
 
     setHeroes(newHeroes);
   }; */
-
-  // Função no useContext
-
-  function handleFavoriteHero(heroFavorite: Hero) {
-    const heroAlreadyExistsInListFavorites = heroesFavorite.some(
-      (hero) => hero.id === heroFavorite.id
-    );
-
-    if (heroAlreadyExistsInListFavorites) {
-      console.log("Herói já existe");
-
-      return;
-    }
-
-    if (heroesFavorite.length >= 5) {
-      console.log("Nao pode conter mais de 5 favoritos");
-
-      return;
-    }
-    const newHeroInList = [...heroesFavorite, heroFavorite];
-
-    setHeroesFavorite(newHeroInList);
-  }
 
   return (
     <HeroesListContainer>
@@ -88,7 +68,6 @@ export function HeroesList() {
           <>
             {heroesFavorite.map((hero) => (
               <HeroCard
-                onFavorite={handleFavoriteHero}
                 key={hero.id}
                 hero={hero}
               />
@@ -98,7 +77,6 @@ export function HeroesList() {
           <>
             {heroes.map((hero) => (
               <HeroCard
-                onFavorite={handleFavoriteHero}
                 key={hero.id}
                 hero={hero}
               />

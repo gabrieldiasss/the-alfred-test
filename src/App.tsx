@@ -4,15 +4,22 @@ import { GlobalStyle } from "./styles/global";
 import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "./styles/themes/default";
 import { Footer } from "./components/Footer";
+import { HeroContextProvider } from "./contexts/useFavorite";
+import { ToastProvider } from 'react-toast-notifications';
 
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
-      <BrowserRouter>
-        <RoutesComponent />
-      </BrowserRouter>
-      <Footer />
+
+      <ToastProvider>
+        <BrowserRouter>
+          <HeroContextProvider>
+            <RoutesComponent />
+            <Footer />
+          </HeroContextProvider>
+        </BrowserRouter>
+      </ToastProvider>
     </ThemeProvider>
   );
 }

@@ -2,6 +2,10 @@ import { styled } from "styled-components";
 
 export const HomeContainer = styled.div`
   height: 100%;
+
+  svg {
+    color: ${({ theme }) => theme.colors["base-brand-red"]};
+  }
 `;
 
 export const HomeContent = styled.div`
