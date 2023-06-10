@@ -5,7 +5,7 @@ import { FaUserNinja } from "react-icons/fa";
 import { useEffect } from "react";
 import { useState } from "react";
 import { api } from "@/lib/axios";
-import { useHero } from "@/contexts/useFavorite";
+import { useHero } from "@/contexts/useHero";
 import { FilteredListHeroes } from "../FilteredListHeroes";
 
 export interface Hero {

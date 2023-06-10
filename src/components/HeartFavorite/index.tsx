@@ -1,4 +1,4 @@
-import { useHero } from "@/contexts/useFavorite";
+import { useHero } from "@/contexts/useHero";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 interface HeartFavoriteProps {

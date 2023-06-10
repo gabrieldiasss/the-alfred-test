@@ -4,8 +4,8 @@ import { GlobalStyle } from "./styles/global";
 import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "./styles/themes/default";
 import { Footer } from "./components/Footer";
-import { HeroContextProvider } from "./contexts/useFavorite";
-import { ToastProvider } from 'react-toast-notifications';
+import { HeroContextProvider } from "./contexts/useHero";
+import { ToastProvider } from "react-toast-notifications";
 
 function App() {
   return (

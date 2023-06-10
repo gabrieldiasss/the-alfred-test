@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { RegularText } from "../../../../components/Typography";
 import { Hero } from "../HeroesList";
 import { HeroCardContainer, HeroInfo } from "./styles";
-import { useHero } from "@/contexts/useFavorite";
+import { useHero } from "@/contexts/useHero";
 import { HeartFavorite } from "@/components/HeartFavorite";
 
 interface HeroCardProps {
