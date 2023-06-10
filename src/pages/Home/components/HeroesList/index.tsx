@@ -1,12 +1,12 @@
-import { RegularText } from "../../../../components/Typography";
+import { RegularText } from "@/components/Typography";
 import { HeroCard } from "../HeroCard";
 import { HeroActions, HeroList, HeroesListContainer } from "./styles";
 import { FaUserNinja } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
 import { useEffect } from "react";
-import md5 from "md5";
 import { useState } from "react";
-import { api } from "../../../../lib/axios";
+import { api } from "@/lib/axios";
+import { hash, publicKey, time } from "@/utils/marvelApi";
 
 export interface Hero {
   id: number;
@@ -21,14 +21,6 @@ export function HeroesList() {
   const [heroes, setHeroes] = useState<Hero[]>([]);
   const [heroesFavorite, setHeroesFavorite] = useState<Hero[]>([]);
   const [onlyFavorite, setOnlyFavorites] = useState(false);
-
-  // Mover para outra pasta
-  const publicKey = import.meta.env.VITE_MARVEL_PUBLIC_KEY;
-  const privateKey = import.meta.env.VITE_MARVEL_SECRET_KEY;
-
-  const time = Number(new Date());
-
-  const hash = md5(time + privateKey + publicKey);
 
   useEffect(() => {
     api
@@ -66,8 +58,6 @@ export function HeroesList() {
 
     setHeroesFavorite(newHeroInList);
   }
-
-  console.log(heroesFavorite);
 
   return (
     <HeroesListContainer>
