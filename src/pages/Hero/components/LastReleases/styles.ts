@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 
 export const LastReleasesContainer = styled.div`
   margin-top: 3rem;
+  padding-bottom: 2rem;
 `;
 
 export const ComicList = styled.div`

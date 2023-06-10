@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const HomeContainer = styled.div`
-  height: 100vh;
+  height: 100%;
 `;
 
 export const HomeContent = styled.div`

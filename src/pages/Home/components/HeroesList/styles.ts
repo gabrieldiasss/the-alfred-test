@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 
 export const HeroesListContainer = styled.div`
   margin-top: 4rem;
+  margin-bottom: 4rem;
 `;
 
 export const HeroActions = styled.div`

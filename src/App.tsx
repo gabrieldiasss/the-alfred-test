@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { GlobalStyle } from "./styles/global";
 import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "./styles/themes/default";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <BrowserRouter>
         <RoutesComponent />
       </BrowserRouter>
+      <Footer />
     </ThemeProvider>
   );
 }
