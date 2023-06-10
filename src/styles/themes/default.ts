@@ -3,6 +3,7 @@ export const defaultTheme = {
     "base-brand-red": "#FF1510",
     "base-brand-red-light": "#FDECEC",
     "base-brand-green-light": "#E7F6E7",
+    "base-brand-white-light": "#ffff",
 
     "base-gray500": "#404040",
     "base-gray400": "#8C8C8C",

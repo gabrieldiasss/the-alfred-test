@@ -4,14 +4,15 @@ import { LastReleases } from "./components/LastReleases";
 import { HeroContainer, HeroContent } from "./styles";
 import { api } from "@/lib/axios";
 import { useEffect, useState } from "react";
+import { HeaderHero } from "./components/HeaderHero";
 
 export interface Comics {
   id: number;
   title: string;
   thumbnail: {
-    path: string
-    extension: string
-  }
+    path: string;
+    extension: string;
+  };
 }
 
 export interface IHeroDetails {
@@ -31,7 +32,7 @@ export function Hero() {
   const { id } = useParams();
 
   const [hero, setHero] = useState<IHeroDetails>({} as IHeroDetails);
-  const [comics, setComics] = useState<Comics[]>([])
+  const [comics, setComics] = useState<Comics[]>([]);
 
   useEffect(() => {
     api
@@ -43,14 +44,16 @@ export function Hero() {
     api
       .get(`/characters/${id}/comics`)
       .then((response) => setComics(response.data.data.results))
-      .catch((err) => console.log(err))
+      .catch((err) => console.log(err));
   }, []);
 
-  console.log(comics)
+  console.log(comics);
 
   return (
     <HeroContainer>
       <HeroContent>
+        <HeaderHero />
+        
         <HeroDetails hero={hero} />
 
         <LastReleases comics={comics} />

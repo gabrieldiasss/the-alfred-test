@@ -5,6 +5,8 @@ export const LastReleasesContainer = styled.div`
 `;
 
 export const ComicList = styled.div`
+  margin-top: 2rem;
+
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 2rem;

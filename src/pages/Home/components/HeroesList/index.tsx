@@ -6,7 +6,6 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { useEffect } from "react";
 import { useState } from "react";
 import { api } from "@/lib/axios";
-import { hash, publicKey, time } from "@/utils/marvelApi";
 
 export interface Hero {
   id: number;

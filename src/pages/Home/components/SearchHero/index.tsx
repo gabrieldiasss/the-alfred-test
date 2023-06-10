@@ -1,12 +1,12 @@
-import { InputFake, SearchHeroContainer } from "./styles";
-import Logo from "../../../../assets/logo.png";
-import { BiSearch } from "react-icons/bi";
+import {  SearchHeroContainer } from "./styles";
 import { RegularText, TitleText } from "../../../../components/Typography";
+import { Logo } from "@/components/Logo";
+import { Input } from "@/components/Input";
 
 export function SearchHero() {
   return (
     <SearchHeroContainer>
-      <img src={Logo} alt="" />
+      <Logo />
 
       <TitleText size="l">EXPLORE O UNIVERSO</TitleText>
       <RegularText color="gray400">
@@ -14,10 +14,7 @@ export function SearchHero() {
         você ama - e aqueles que você descobrirá e breve!
       </RegularText>
 
-      <InputFake>
-        <BiSearch size={28} />
-        <input placeholder="Procure por heróis" />
-      </InputFake>
+      <Input theme="red" />
     </SearchHeroContainer>
   );
 }
