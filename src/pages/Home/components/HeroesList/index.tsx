@@ -19,8 +19,10 @@ export interface Hero {
 
 export function HeroesList() {
   const [heroes, setHeroes] = useState<Hero[]>([]);
-  const [heroesFavorite, setHeroesFavorite] = useState<Hero[]>([])
+  const [heroesFavorite, setHeroesFavorite] = useState<Hero[]>([]);
+  const [onlyFavorite, setOnlyFavorites] = useState(false);
 
+  // Mover para outra pasta
   const publicKey = import.meta.env.VITE_MARVEL_PUBLIC_KEY;
   const privateKey = import.meta.env.VITE_MARVEL_SECRET_KEY;
 
@@ -31,19 +33,41 @@ export function HeroesList() {
   useEffect(() => {
     api
       .get(`/characters?ts=${time}&apikey=${publicKey}&hash=${hash}`)
-      .then((response) => {
-        console.log(response.data.data.results)
-        setHeroes(response.data.data.results)
-      });
+      .then((response) => setHeroes(response.data.data.results));
   }, []);
 
-  const order = () => {
+  /* const order = () => {
     let newHeroes = [...heroes];
 
     newHeroes.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
 
     setHeroes(newHeroes);
-  };
+  }; */
+
+  // Função no useContext
+
+  function handleFavoriteHero(heroFavorite: Hero) {
+    const heroAlreadyExistsInListFavorites = heroesFavorite.some(
+      (hero) => hero.id === heroFavorite.id
+    );
+
+    if (heroAlreadyExistsInListFavorites) {
+      console.log("Herói já existe");
+
+      return;
+    }
+
+    if (heroesFavorite.length >= 5) {
+      console.log("Nao pode conter mais de 5 favoritos");
+
+      return;
+    }
+    const newHeroInList = [...heroesFavorite, heroFavorite];
+
+    setHeroesFavorite(newHeroInList);
+  }
+
+  console.log(heroesFavorite);
 
   return (
     <HeroesListContainer>
@@ -54,21 +78,44 @@ export function HeroesList() {
           </RegularText>
         </div>
 
+        {/* Criar novo componente */}
         <div>
           <RegularText size="l" color="brand-red">
-            <FaUserNinja onClick={order} /> Ordenar por nome - A/Z
+            <FaUserNinja /> Ordenar por nome - A/Z
           </RegularText>
           <RegularText size="l" color="brand-red">
-            
-            <AiOutlineHeart size={22} color="#FF1510" /> Somente favoritos
+            <AiOutlineHeart
+              onClick={() => setOnlyFavorites(!onlyFavorite)}
+              size={24}
+              color="#FF1510"
+            />{" "}
+            Somente favoritos
           </RegularText>
         </div>
       </HeroActions>
 
       <HeroList>
-        {heroes.map((hero) => (
-          <HeroCard key={hero.id} hero={hero} />
-        ))}
+        {onlyFavorite ? (
+          <>
+            {heroesFavorite.map((hero) => (
+              <HeroCard
+                onFavorite={handleFavoriteHero}
+                key={hero.id}
+                hero={hero}
+              />
+            ))}
+          </>
+        ) : (
+          <>
+            {heroes.map((hero) => (
+              <HeroCard
+                onFavorite={handleFavoriteHero}
+                key={hero.id}
+                hero={hero}
+              />
+            ))}
+          </>
+        )}
       </HeroList>
     </HeroesListContainer>
   );

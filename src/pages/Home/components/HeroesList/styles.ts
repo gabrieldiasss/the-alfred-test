@@ -27,5 +27,5 @@ export const HeroActions = styled.div`
 export const HeroList = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
+  gap: 4rem;
 `;
