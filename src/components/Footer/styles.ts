@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 
 export const FooterContainer = styled.footer`
   background-color: ${({ theme }) => theme.colors["base-brand-red-light"]};
+
 `;
 
 export const FooterContent = styled.div`

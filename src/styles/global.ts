@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
     }
 
-    body {
+    html, body {
         font-family: Work Sans;
         height: 100vh;
     }
