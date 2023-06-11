@@ -1,6 +1,6 @@
 import { styled } from 'styled-components'
 
-export const HeroesListContainer = styled.div`
+export const HeroesListContainer = styled.main`
   margin-top: 4rem;
   margin-bottom: 4rem;
 `
@@ -26,9 +26,14 @@ export const HeroActions = styled.div`
 `
 
 export const HeroList = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 4rem;
+  margin-bottom: 6rem;
+
+  @media (max-width: 1320px) {
+    justify-content: center;
+  }
 
   @media (max-width: 600px) {
     display: flex;

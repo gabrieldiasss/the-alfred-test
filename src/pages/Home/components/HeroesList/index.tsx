@@ -1,39 +1,47 @@
-import { RegularText } from '@/components/Typography'
-import { HeroCard } from '../HeroCard'
-import { HeroActions, HeroList, HeroesListContainer } from './styles'
-import { useEffect, useState } from 'react'
+import { RegularText } from "@/components/Typography";
+import { HeroCard } from "../HeroCard";
+import { HeroActions, HeroList, HeroesListContainer } from "./styles";
+import { useEffect, useState } from "react";
 
-import { api } from '@/lib/axios'
-import { useHero } from '@/contexts/useHero'
-import { FilteredListHeroes } from '../FilteredListHeroes'
-import { HeroCardSkeleton } from '../HeroCardSkeleton'
+import { api } from "@/lib/axios";
+import { useHero } from "@/contexts/useHero";
+import { FilteredListHeroes } from "../FilteredListHeroes";
+import { HeroCardSkeleton } from "../HeroCardSkeleton";
+import { Pagination } from "../Pagination";
 
 export interface Hero {
-  id: number
-  name: string
+  id: number;
+  name: string;
   thumbnail: {
-    extension: string
-    path: string
-  }
+    extension: string;
+    path: string;
+  };
 }
 
+const LIMIT = 20;
+
 export function HeroesList() {
-  const [heroes, setHeroes] = useState<Hero[]>([])
-  const [onlyFavorite, setOnlyFavorites] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
-  const { heroesFavorite } = useHero()
+  const [heroes, setHeroes] = useState<Hero[]>([]);
+  const [onlyFavorite, setOnlyFavorites] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [offset, setOffset] = useState(0);
+  const [heroesTotal, setHeroesTotal] = useState(0);
+  const { heroesFavorite } = useHero();
 
   useEffect(() => {
     api
-      .get('/characters')
+      .get(`/characters`, {
+        params: {
+          limit: LIMIT,
+          offset,
+        },
+      })
       .then((response) => {
-        setHeroes(response.data.data.results)
-        setIsLoading(false)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [])
+        setHeroes(response.data.data.results);
+        setHeroesTotal(response.data.data.total);
+        setIsLoading(false);
+      });
+  }, [offset]);
 
   /* const order = () => {
     let newHeroes = [...heroes];
@@ -44,7 +52,7 @@ export function HeroesList() {
   }; */
 
   function handleRenderOnlyFavoriteHeroes(): void {
-    setOnlyFavorites(!onlyFavorite)
+    setOnlyFavorites(!onlyFavorite);
   }
 
   return (
@@ -52,7 +60,7 @@ export function HeroesList() {
       <HeroActions>
         <div>
           <RegularText color="gray200" size="l">
-            Encontrados 20 heróis
+            Encontrados {heroesTotal} heróis
           </RegularText>
         </div>
 
@@ -69,6 +77,12 @@ export function HeroesList() {
             {heroesFavorite.map((hero) => (
               <HeroCard key={hero.id} hero={hero} />
             ))}
+
+            {heroesFavorite.length === 0 && (
+              <RegularText size="l">
+                Nenhum herói adicionado a lista de favoritos =(
+              </RegularText>
+            )}
           </>
         ) : (
           <>
@@ -77,13 +91,16 @@ export function HeroesList() {
             ))}
           </>
         )}
-
-        {/* {heroesFavorite.length <= 0 && (
-          <RegularText size="l">
-            Nenhum herói na lista de favoritos =(
-          </RegularText>
-        )} */}
       </HeroList>
+
+      {!onlyFavorite && (
+        <Pagination
+          limit={LIMIT}
+          total={1562}
+          offset={offset}
+          setOffset={setOffset}
+        />
+      )}
     </HeroesListContainer>
-  )
+  );
 }

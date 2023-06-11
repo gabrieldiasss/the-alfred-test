@@ -25,7 +25,10 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html, body {
-        font-family: Work Sans;
         height: 100vh;
+    }
+    
+    body, input, button {
+        font-family: Work Sans;
     }
 `

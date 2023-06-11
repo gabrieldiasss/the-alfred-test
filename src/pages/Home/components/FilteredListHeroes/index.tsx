@@ -14,10 +14,10 @@ export function FilteredListHeroes({
   return (
     <>
       <div style={{ cursor: 'pointer' }}>
-        <RegularText size="l" color="brand-red">
+        <RegularText color="brand-red">
           <FaUserNinja /> Ordenar por nome - A/Z
         </RegularText>
-        <RegularText size="l" color="brand-red">
+        <RegularText color="brand-red">
           {onlyFavorites ? (
             <AiFillHeart
               onClick={onRenderFavoriteHeroes}
