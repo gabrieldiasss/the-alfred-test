@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components'
 
 export const HeaderHeroContainer = styled.header`
   padding-top: 2rem;
@@ -13,4 +13,4 @@ export const HeaderHeroContainer = styled.header`
     align-items: center;
     flex-direction: column;
   }
-`;
+`

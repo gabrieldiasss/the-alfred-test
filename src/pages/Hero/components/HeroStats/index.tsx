@@ -1,14 +1,14 @@
-import { ReactNode } from 'react'
-import { RegularText } from "@/components/Typography";
-import { HeroStatsContainer } from './styles';
+import { type ReactNode } from 'react'
+import { RegularText } from '@/components/Typography'
+import { HeroStatsContainer } from './styles'
 
 interface HeroStatsProps {
-    title: string
-    icon: ReactNode
-    heroCount: number
+  title: string
+  icon: ReactNode
+  heroCount: number
 }
 
-export function HeroStats({title, icon, heroCount}: HeroStatsProps) {
+export function HeroStats({ title, icon, heroCount }: HeroStatsProps) {
   return (
     <HeroStatsContainer>
       <div className="heroCount">
@@ -18,5 +18,5 @@ export function HeroStats({title, icon, heroCount}: HeroStatsProps) {
         </div>
       </div>
     </HeroStatsContainer>
-  );
+  )
 }

@@ -1,6 +1,6 @@
-import { Logo } from "@/components/Logo";
-import { HeaderHeroContainer } from "./styles";
-import { Input } from "@/components/Input";
+import { Logo } from '@/components/Logo'
+import { HeaderHeroContainer } from './styles'
+import { Input } from '@/components/Input'
 
 export function HeaderHero() {
   return (
@@ -9,5 +9,5 @@ export function HeaderHero() {
 
       <Input theme="white" />
     </HeaderHeroContainer>
-  );
+  )
 }

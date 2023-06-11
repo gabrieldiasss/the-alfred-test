@@ -1,34 +1,39 @@
-import { RegularText } from "@/components/Typography";
-import { HeroCard } from "../HeroCard";
-import { HeroActions, HeroList, HeroesListContainer } from "./styles";
-import { useEffect } from "react";
-import { useState } from "react";
-import { api } from "@/lib/axios";
-import { useHero } from "@/contexts/useHero";
-import { FilteredListHeroes } from "../FilteredListHeroes";
-import { HeroCardSkeleton } from "../HeroCardSkeleton";
+import { RegularText } from '@/components/Typography'
+import { HeroCard } from '../HeroCard'
+import { HeroActions, HeroList, HeroesListContainer } from './styles'
+import { useEffect, useState } from 'react'
+
+import { api } from '@/lib/axios'
+import { useHero } from '@/contexts/useHero'
+import { FilteredListHeroes } from '../FilteredListHeroes'
+import { HeroCardSkeleton } from '../HeroCardSkeleton'
 
 export interface Hero {
-  id: number;
-  name: string;
+  id: number
+  name: string
   thumbnail: {
-    extension: string;
-    path: string;
-  };
+    extension: string
+    path: string
+  }
 }
 
 export function HeroesList() {
-  const [heroes, setHeroes] = useState<Hero[]>([]);
-  const [onlyFavorite, setOnlyFavorites] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const { heroesFavorite } = useHero();
+  const [heroes, setHeroes] = useState<Hero[]>([])
+  const [onlyFavorite, setOnlyFavorites] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const { heroesFavorite } = useHero()
 
   useEffect(() => {
-    api.get(`/characters`).then((response) => {
-      setHeroes(response.data.data.results);
-      setIsLoading(false);
-    });
-  }, []);
+    api
+      .get('/characters')
+      .then((response) => {
+        setHeroes(response.data.data.results)
+        setIsLoading(false)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [])
 
   /* const order = () => {
     let newHeroes = [...heroes];
@@ -38,8 +43,8 @@ export function HeroesList() {
     setHeroes(newHeroes);
   }; */
 
-  function handleRenderOnlyFavoriteHeroes() {
-    setOnlyFavorites(!onlyFavorite);
+  function handleRenderOnlyFavoriteHeroes(): void {
+    setOnlyFavorites(!onlyFavorite)
   }
 
   return (
@@ -80,5 +85,5 @@ export function HeroesList() {
         )} */}
       </HeroList>
     </HeroesListContainer>
-  );
+  )
 }

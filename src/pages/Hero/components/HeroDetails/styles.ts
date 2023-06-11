@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components'
 
 export const HeroDetailsContainer = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const HeroDetailsContainer = styled.div`
   @media (max-width: 850px) {
     flex-direction: column;
   }
-`;
+`
 
 export const HeroInfo = styled.div`
   max-width: 400px;
@@ -22,7 +22,7 @@ export const HeroInfo = styled.div`
   @media (max-width: 500px) {
     width: 100%;
   }
-`;
+`
 
 export const HeroImage = styled.div`
   img {
@@ -31,25 +31,25 @@ export const HeroImage = styled.div`
     height: auto;
     border-radius: 8px;
   }
-`;
+`
 
 export const HeroHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
+`
 
 export const ComicsAndMovies = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
   margin-top: 1rem;
-`;
+`
 
 export const Assessment = styled.div`
   margin-top: 1rem;
-`;
+`
 
 export const LastComic = styled.div`
   margin-top: 1rem;
-`;
+`

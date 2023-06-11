@@ -1,8 +1,8 @@
-import { BiSearch } from "react-icons/bi";
-import { InputStyle, InputWrapper } from "./styles";
+import { BiSearch } from 'react-icons/bi'
+import { InputStyle, InputWrapper } from './styles'
 
 interface InputProps {
-  theme: "red" | "white"
+  theme: 'red' | 'white'
 }
 
 export function Input({ theme }: InputProps) {
@@ -11,5 +11,5 @@ export function Input({ theme }: InputProps) {
       <BiSearch size={28} />
       <InputStyle placeholder="Procure por heróis" />
     </InputWrapper>
-  );
+  )
 }

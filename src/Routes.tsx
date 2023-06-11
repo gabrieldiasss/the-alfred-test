@@ -1,6 +1,6 @@
-import { Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { Hero } from "./pages/Hero";
+import { Routes, Route } from 'react-router-dom'
+import { Home } from './pages/Home'
+import { Hero } from './pages/Hero'
 
 export function RoutesComponent() {
   return (
@@ -8,5 +8,5 @@ export function RoutesComponent() {
       <Route path="/" element={<Home />} />
       <Route path="/:id" element={<Hero />} />
     </Routes>
-  );
+  )
 }

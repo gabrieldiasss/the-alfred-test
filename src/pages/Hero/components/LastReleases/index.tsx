@@ -1,9 +1,9 @@
-import { RegularText, TitleText } from "@/components/Typography";
-import { ComicCard, ComicList, LastReleasesContainer } from "./styles";
-import { Comics } from "../..";
+import { RegularText, TitleText } from '@/components/Typography'
+import { ComicCard, ComicList, LastReleasesContainer } from './styles'
+import { type Comics } from '../..'
 
 interface LastReleasesProps {
-  comics: Comics[];
+  comics: Comics[]
 }
 
 export function LastReleases({ comics }: LastReleasesProps) {
@@ -23,5 +23,5 @@ export function LastReleases({ comics }: LastReleasesProps) {
         ))}
       </ComicList>
     </LastReleasesContainer>
-  );
+  )
 }

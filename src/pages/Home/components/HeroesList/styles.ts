@@ -1,9 +1,9 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components'
 
 export const HeroesListContainer = styled.div`
   margin-top: 4rem;
   margin-bottom: 4rem;
-`;
+`
 
 export const HeroActions = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ export const HeroActions = styled.div`
       gap: 0.5rem;
     }
   }
-`;
+`
 
 export const HeroList = styled.div`
   display: grid;
@@ -35,4 +35,4 @@ export const HeroList = styled.div`
     flex-direction: column;
     align-items: center;
   }
-`;
+`

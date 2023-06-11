@@ -1,9 +1,8 @@
-import { HeroesList } from "./components/HeroesList";
-import { SearchHero } from "./components/SearchHero";
-import { HomeContainer, HomeContent } from "./styles";
+import { HeroesList } from './components/HeroesList'
+import { SearchHero } from './components/SearchHero'
+import { HomeContainer, HomeContent } from './styles'
 
 export function Home() {
-
   return (
     <HomeContainer>
       <HomeContent>
@@ -12,5 +11,5 @@ export function Home() {
         <HeroesList />
       </HomeContent>
     </HomeContainer>
-  );
+  )
 }

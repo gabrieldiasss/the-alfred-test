@@ -1,19 +1,19 @@
-import { RegularText } from "@/components/Typography";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { FaUserNinja } from "react-icons/fa";
+import { RegularText } from '@/components/Typography'
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
+import { FaUserNinja } from 'react-icons/fa'
 
 interface FilteredListHeroesProps {
-  onRenderFavoriteHeroes: () => void;
+  onRenderFavoriteHeroes: () => void
   onlyFavorites: boolean
 }
 
 export function FilteredListHeroes({
   onRenderFavoriteHeroes,
-  onlyFavorites
+  onlyFavorites,
 }: FilteredListHeroesProps) {
   return (
     <>
-      <div style={{ cursor: 'pointer' }} >
+      <div style={{ cursor: 'pointer' }}>
         <RegularText size="l" color="brand-red">
           <FaUserNinja /> Ordenar por nome - A/Z
         </RegularText>
@@ -35,5 +35,5 @@ export function FilteredListHeroes({
         </RegularText>
       </div>
     </>
-  );
+  )
 }

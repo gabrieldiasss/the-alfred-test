@@ -1,29 +1,33 @@
-import { useHero } from "@/contexts/useHero";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { useHero } from '@/contexts/useHero'
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 
 interface HeartFavoriteProps {
-  hero: any;
-  size: number;
+  hero: any
+  size: number
 }
 
 export function HeartFavorite({ hero, size }: HeartFavoriteProps) {
-  const { heroInList, handleFavoriteHero } = useHero();
+  const { heroInList, handleFavoriteHero } = useHero()
 
   return (
     <>
       {heroInList[hero.id] ? (
         <AiFillHeart
-          onClick={() => handleFavoriteHero(hero)}
+          onClick={() => {
+            handleFavoriteHero(hero)
+          }}
           size={size}
           color="#FF1510"
         />
       ) : (
         <AiOutlineHeart
-          onClick={() => handleFavoriteHero(hero)}
+          onClick={() => {
+            handleFavoriteHero(hero)
+          }}
           size={size}
           color="#FF1510"
         />
       )}
     </>
-  );
+  )
 }

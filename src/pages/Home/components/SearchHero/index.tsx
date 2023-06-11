@@ -1,7 +1,7 @@
-import {  SearchHeroContainer } from "./styles";
-import { RegularText, TitleText } from "../../../../components/Typography";
-import { Logo } from "@/components/Logo";
-import { Input } from "@/components/Input";
+import { SearchHeroContainer } from './styles'
+import { RegularText, TitleText } from '../../../../components/Typography'
+import { Logo } from '@/components/Logo'
+import { Input } from '@/components/Input'
 
 export function SearchHero() {
   return (
@@ -16,5 +16,5 @@ export function SearchHero() {
 
       <Input theme="red" />
     </SearchHeroContainer>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components'
 
 export const HeroStatsContainer = styled.div`
   .heroCount {
@@ -12,4 +12,4 @@ export const HeroStatsContainer = styled.div`
       }
     }
   }
-`;
+`

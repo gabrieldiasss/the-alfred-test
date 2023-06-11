@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components'
 
 export const SearchHeroContainer = styled.header`
   display: flex;
@@ -10,4 +10,4 @@ export const SearchHeroContainer = styled.header`
   p {
     margin-top: 1rem;
   }
-`;
+`

@@ -1,9 +1,8 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components'
 
 export const FooterContainer = styled.footer`
-  background-color: ${({ theme }) => theme.colors["base-brand-red-light"]};
-
-`;
+  background-color: ${({ theme }) => theme.colors['base-brand-red-light']};
+`
 
 export const FooterContent = styled.div`
   padding: 1.5rem 0;
@@ -18,4 +17,4 @@ export const FooterContent = styled.div`
     max-width: 100px;
     cursor: pointer;
   }
-`;
+`

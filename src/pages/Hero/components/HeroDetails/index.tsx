@@ -1,4 +1,4 @@
-import { RegularText, TitleText } from "@/components/Typography";
+import { RegularText, TitleText } from '@/components/Typography'
 import {
   Assessment,
   ComicsAndMovies,
@@ -7,20 +7,19 @@ import {
   HeroImage,
   HeroInfo,
   LastComic,
-} from "./styles";
-import { FaBook } from "react-icons/fa";
-import { BiMoviePlay } from "react-icons/bi";
-import { AiFillStar } from "react-icons/ai";
-import { IHeroDetails } from "../..";
-import { HeroStats } from "../HeroStats";
-import { HeartFavorite } from "@/components/HeartFavorite";
+} from './styles'
+import { FaBook } from 'react-icons/fa'
+import { BiMoviePlay } from 'react-icons/bi'
+import { AiFillStar } from 'react-icons/ai'
+import { type IHeroDetails } from '../..'
+import { HeroStats } from '../HeroStats'
+import { HeartFavorite } from '@/components/HeartFavorite'
 
 interface HeroDetailsProps {
-  hero: IHeroDetails;
+  hero: IHeroDetails
 }
 
 export function HeroDetails({ hero }: HeroDetailsProps) {
-
   return (
     <HeroDetailsContainer>
       <HeroInfo>
@@ -32,8 +31,8 @@ export function HeroDetails({ hero }: HeroDetailsProps) {
         <RegularText size="l">{hero.description}</RegularText>
 
         <ComicsAndMovies>
-          <HeroStats title={"Quadrinhos"} icon={<FaBook />} heroCount={3000} />
-          <HeroStats title={"Filmes"} icon={<BiMoviePlay />} heroCount={40} />
+          <HeroStats title={'Quadrinhos'} icon={<FaBook />} heroCount={3000} />
+          <HeroStats title={'Filmes'} icon={<BiMoviePlay />} heroCount={40} />
         </ComicsAndMovies>
 
         <Assessment>
@@ -50,5 +49,5 @@ export function HeroDetails({ hero }: HeroDetailsProps) {
         />
       </HeroImage>
     </HeroDetailsContainer>
-  );
+  )
 }

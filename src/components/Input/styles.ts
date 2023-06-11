@@ -1,7 +1,7 @@
-import { css, styled } from "styled-components";
+import { css, styled } from 'styled-components'
 
 interface InputStyleProps {
-  variant: "red" | "white";
+  variant: 'red' | 'white'
 }
 
 export const InputWrapper = styled.div<InputStyleProps>`
@@ -17,7 +17,7 @@ export const InputWrapper = styled.div<InputStyleProps>`
   align-items: center;
 
   margin-top: 2rem;
-`;
+`
 
 export const InputStyle = styled.input`
   border: 0;
@@ -26,6 +26,6 @@ export const InputStyle = styled.input`
   margin-left: 1rem;
 
   &::placeholder {
-    color: ${(props) => props.theme.colors["base-brand-red"]};
+    color: ${(props) => props.theme.colors['base-brand-red']};
   }
-`;
+`

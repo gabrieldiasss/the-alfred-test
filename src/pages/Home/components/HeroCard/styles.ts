@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components'
 
 export const HeroCardContainer = styled.div`
   width: 250px;
@@ -9,10 +9,10 @@ export const HeroCardContainer = styled.div`
   img {
     width: 250px;
     height: 250px;
-    background-color: ${(props) => props.theme.colors["base-brand-red"]};
+    background-color: ${(props) => props.theme.colors['base-brand-red']};
     border-radius: 8px;
   }
-`;
+`
 
 export const HeroInfo = styled.div`
   display: flex;
@@ -23,4 +23,4 @@ export const HeroInfo = styled.div`
   svg {
     cursor: pointer;
   }
-`;
+`

@@ -1,9 +1,9 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components'
 
 export const LastReleasesContainer = styled.div`
   margin-top: 3rem;
   padding-bottom: 2rem;
-`;
+`
 
 export const ComicList = styled.div`
   margin-top: 2rem;
@@ -12,12 +12,12 @@ export const ComicList = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
 
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-`;
+`
 
 export const ComicCard = styled.main`
   img {
@@ -27,11 +27,11 @@ export const ComicCard = styled.main`
     border-radius: 4px;
   }
 
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     text-align: center;
-    
+
     p {
       max-width: 200px;
     }
   }
-`;
+`
