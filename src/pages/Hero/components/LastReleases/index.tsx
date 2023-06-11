@@ -12,10 +12,10 @@ export function LastReleases({ comics }: LastReleasesProps) {
       <TitleText>Últimos lançamentos</TitleText>
 
       <ComicList>
-        {comics.map((comic) => (
+        {comics.slice(0, 10).map((comic) => (
           <ComicCard key={comic.id}>
             <img
-              src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+              src={`${comic.thumbnail?.path}.${comic.thumbnail?.extension}`}
               alt=""
             />
             <RegularText>{comic.title}</RegularText>

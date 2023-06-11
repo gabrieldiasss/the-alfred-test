@@ -46,10 +46,6 @@ export const ComicsAndMovies = styled.div`
   margin-top: 1rem;
 `
 
-export const Assessment = styled.div`
-  margin-top: 1rem;
-`
-
 export const LastComic = styled.div`
   margin-top: 1rem;
 `

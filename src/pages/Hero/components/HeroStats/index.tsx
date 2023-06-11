@@ -12,7 +12,7 @@ export function HeroStats({ title, icon, heroCount }: HeroStatsProps) {
   return (
     <HeroStatsContainer>
       <div className="heroCount">
-        <RegularText>{title}</RegularText>
+        <RegularText size="l">{title}</RegularText>
         <div>
           {icon} {heroCount}
         </div>

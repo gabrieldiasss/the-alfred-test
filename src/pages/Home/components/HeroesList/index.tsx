@@ -1,32 +1,32 @@
-import { RegularText } from "@/components/Typography";
-import { HeroCard } from "../HeroCard";
-import { HeroActions, HeroList, HeroesListContainer } from "./styles";
-import { useEffect, useState } from "react";
+import { RegularText } from '@/components/Typography'
+import { HeroCard } from '../HeroCard'
+import { HeroActions, HeroList, HeroesListContainer } from './styles'
+import { useEffect, useState } from 'react'
 
-import { api } from "@/lib/axios";
-import { useHero } from "@/contexts/useHero";
-import { FilteredListHeroes } from "../FilteredListHeroes";
-import { HeroCardSkeleton } from "../HeroCardSkeleton";
-import { Pagination } from "../Pagination";
+import { api } from '@/lib/axios'
+import { useHero } from '@/contexts/useHero'
+import { FilteredListHeroes } from '../FilteredListHeroes'
+import { HeroCardSkeleton } from '../HeroCardSkeleton'
+import { Pagination } from '../Pagination'
 
 export interface Hero {
-  id: number;
-  name: string;
+  id: number
+  name: string
   thumbnail: {
-    extension: string;
-    path: string;
-  };
+    extension: string
+    path: string
+  }
 }
 
-const LIMIT = 20;
+const LIMIT = 20
 
 export function HeroesList() {
-  const [heroes, setHeroes] = useState<Hero[]>([]);
-  const [onlyFavorite, setOnlyFavorites] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [offset, setOffset] = useState(0);
-  const [heroesTotal, setHeroesTotal] = useState(0);
-  const { heroesFavorite } = useHero();
+  const [heroes, setHeroes] = useState<Hero[]>([])
+  const [onlyFavorite, setOnlyFavorites] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [offset, setOffset] = useState(0)
+  const [heroesTotal, setHeroesTotal] = useState(0)
+  const { heroesFavorite } = useHero()
 
   useEffect(() => {
     api
@@ -37,11 +37,11 @@ export function HeroesList() {
         },
       })
       .then((response) => {
-        setHeroes(response.data.data.results);
-        setHeroesTotal(response.data.data.total);
-        setIsLoading(false);
-      });
-  }, [offset]);
+        setHeroes(response.data.data.results)
+        setHeroesTotal(response.data.data.total)
+        setIsLoading(false)
+      })
+  }, [offset])
 
   /* const order = () => {
     let newHeroes = [...heroes];
@@ -52,7 +52,7 @@ export function HeroesList() {
   }; */
 
   function handleRenderOnlyFavoriteHeroes(): void {
-    setOnlyFavorites(!onlyFavorite);
+    setOnlyFavorites(!onlyFavorite)
   }
 
   return (
@@ -102,5 +102,5 @@ export function HeroesList() {
         />
       )}
     </HeroesListContainer>
-  );
+  )
 }

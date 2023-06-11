@@ -9,6 +9,7 @@ import { HeaderHero } from './components/HeaderHero'
 export interface Comics {
   id: number
   title: string
+  available: number
   thumbnail: {
     path: string
     extension: string
@@ -24,7 +25,20 @@ export interface IHeroDetails {
     extension: string
   }
   comics: {
-    collectionURI: string
+    available: number
+    items: {
+      id: number
+      title: string
+      thumbnail: {
+        path: string
+        extension: string
+      }
+    }[]
+  }
+  series: {
+    items: {
+      name: string
+    }[]
   }
 }
 
@@ -41,14 +55,9 @@ export function Hero() {
   }, [])
 
   useEffect(() => {
-    api
-      .get(`/characters/${id}/comics`)
-      .then((response) => {
-        setComics(response.data.data.results)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    api.get(`/characters/${id}/comics`).then((response) => {
+      setComics(response.data.data.results)
+    })
   }, [])
 
   return (
