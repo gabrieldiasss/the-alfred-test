@@ -33,17 +33,22 @@ export function Hero() {
 
   const [hero, setHero] = useState<IHeroDetails>({} as IHeroDetails);
   const [comics, setComics] = useState<Comics[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    api
-      .get(`/characters/${id}`)
-      .then((response) => setHero(response.data.data.results[0]));
+    api.get(`/characters/${id}`).then((response) => {
+      setHero(response.data.data.results[0]);
+      setIsLoading(false);
+    });
   }, []);
 
   useEffect(() => {
     api
       .get(`/characters/${id}/comics`)
-      .then((response) => setComics(response.data.data.results))
+      .then((response) => {
+        setComics(response.data.data.results);
+        setIsLoading(false);
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -51,7 +56,7 @@ export function Hero() {
     <HeroContainer>
       <HeroContent>
         <HeaderHero />
-        
+
         <HeroDetails hero={hero} />
 
         <LastReleases comics={comics} />

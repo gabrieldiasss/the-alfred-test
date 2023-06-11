@@ -26,7 +26,8 @@ export interface Hero {
   };
 }
 
-const HERO_ITEMS_STORAGE_KEY = "marvelTheAlfred:heroFavorites";
+const HERO_ITEMS_STORAGE_KEY = "marvelTheAlfred:heroFavoritesList";
+const HERO_FAVORITE = "marvelTheAlfred:isHeroFavorites";
 
 export const HeroContext = createContext({} as HeroContextType);
 
@@ -41,7 +42,15 @@ export function HeroContextProvider({ children }: HeroContextProviderProps) {
     return [];
   });
 
-  const [heroInList, setHeroInList] = useState<Record<number, boolean>>({});
+  const [heroInList, setHeroInList] = useState<Record<number, boolean>>(() => {
+    const storedHasHeroFavorites = localStorage.getItem(HERO_FAVORITE);
+
+    if (storedHasHeroFavorites) {
+      return JSON.parse(storedHasHeroFavorites);
+    }
+
+    return {};
+  });
   const { addToast } = useToasts();
 
   function handleFavoriteHero(heroFavorite: Hero) {
@@ -92,7 +101,12 @@ export function HeroContextProvider({ children }: HeroContextProviderProps) {
       HERO_ITEMS_STORAGE_KEY,
       JSON.stringify(heroesFavorite)
     );
-  }, [heroesFavorite]);
+
+    localStorage.setItem(
+      HERO_FAVORITE,
+      JSON.stringify(heroInList)
+    );
+  }, [heroesFavorite, heroInList]);
 
   return (
     <HeroContext.Provider

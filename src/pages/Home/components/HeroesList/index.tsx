@@ -1,12 +1,12 @@
 import { RegularText } from "@/components/Typography";
 import { HeroCard } from "../HeroCard";
 import { HeroActions, HeroList, HeroesListContainer } from "./styles";
-import { FaUserNinja } from "react-icons/fa";
 import { useEffect } from "react";
 import { useState } from "react";
 import { api } from "@/lib/axios";
 import { useHero } from "@/contexts/useHero";
 import { FilteredListHeroes } from "../FilteredListHeroes";
+import { HeroCardSkeleton } from "../HeroCardSkeleton";
 
 export interface Hero {
   id: number;
@@ -20,12 +20,14 @@ export interface Hero {
 export function HeroesList() {
   const [heroes, setHeroes] = useState<Hero[]>([]);
   const [onlyFavorite, setOnlyFavorites] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const { heroesFavorite } = useHero();
 
   useEffect(() => {
-    api
-      .get(`/characters`)
-      .then((response) => setHeroes(response.data.data.results));
+    api.get(`/characters`).then((response) => {
+      setHeroes(response.data.data.results);
+      setIsLoading(false);
+    });
   }, []);
 
   /* const order = () => {
@@ -56,6 +58,7 @@ export function HeroesList() {
       </HeroActions>
 
       <HeroList>
+        {isLoading && <HeroCardSkeleton cards={20} />}
         {onlyFavorite ? (
           <>
             {heroesFavorite.map((hero) => (
