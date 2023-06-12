@@ -5,11 +5,15 @@ import { HeroContainer, HeroContent } from './styles'
 import { api } from '@/lib/axios'
 import { useEffect, useState } from 'react'
 import { HeaderHero } from './components/HeaderHero'
+import { getFormattedDate } from '@/utils/formatDate'
 
 export interface Comics {
   id: number
   title: string
   available: number
+  dates: {
+    date: Date
+  }[]
   thumbnail: {
     path: string
     extension: string
@@ -60,12 +64,14 @@ export function Hero() {
     })
   }, [])
 
+  const date = getFormattedDate(comics[0]?.dates[0].date)
+
   return (
     <HeroContainer>
       <HeroContent>
         <HeaderHero />
 
-        <HeroDetails hero={hero} />
+        <HeroDetails hero={hero} lastRelease={date as string} />
 
         <LastReleases comics={comics} />
       </HeroContent>

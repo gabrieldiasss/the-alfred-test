@@ -31,4 +31,8 @@ export const GlobalStyle = createGlobalStyle`
     body, input, button {
         font-family: Work Sans;
     }
+
+    svg {
+        cursor: pointer;
+    }
 `

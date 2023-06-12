@@ -1,4 +1,4 @@
-import { RegularText, TitleText } from '@/components/Typography'
+import { RegularText, TitleText } from "@/components/Typography";
 import {
   ComicsAndMovies,
   HeroDetailsContainer,
@@ -6,19 +6,20 @@ import {
   HeroImage,
   HeroInfo,
   LastComic,
-} from './styles'
-import { FaBook } from 'react-icons/fa'
-import { BiMoviePlay } from 'react-icons/bi'
-import { type IHeroDetails } from '../..'
-import { HeroStats } from '../HeroStats'
-import { HeartFavorite } from '@/components/HeartFavorite'
-import { Rating } from '../Rating'
+} from "./styles";
+import { FaBook } from "react-icons/fa";
+import { BiMoviePlay } from "react-icons/bi";
+import { type IHeroDetails } from "../..";
+import { HeroStats } from "../HeroStats";
+import { HeartFavorite } from "@/components/HeartFavorite";
+import { Rating } from "../Rating";
 
 interface HeroDetailsProps {
-  hero: IHeroDetails
+  hero: IHeroDetails;
+  lastRelease: string;
 }
 
-export function HeroDetails({ hero }: HeroDetailsProps) {
+export function HeroDetails({ hero, lastRelease }: HeroDetailsProps) {
   return (
     <HeroDetailsContainer>
       <HeroInfo>
@@ -26,25 +27,22 @@ export function HeroDetails({ hero }: HeroDetailsProps) {
           <TitleText size="l">{hero.name}</TitleText>
           <HeartFavorite hero={hero} size={30} />
         </HeroHeader>
-
         <RegularText size="l">{hero.description}</RegularText>
-
         <ComicsAndMovies>
           <HeroStats
-            title={'Quadrinhos'}
+            title={"Quadrinhos"}
             icon={<FaBook />}
             heroCount={hero.comics?.items.length}
           />
           <HeroStats
-            title={'Filmes'}
+            title={"Filmes"}
             icon={<BiMoviePlay />}
             heroCount={hero.series?.items.length}
           />
         </ComicsAndMovies>
-
+        {/* {Deixei o número da avaliação fixo, pois não encontrei na api */}
         <Rating rating={4} />
-
-        <LastComic>Último quadrinho: 13 fev 2020</LastComic>
+        <LastComic>Último quadrinho: {lastRelease}</LastComic>
       </HeroInfo>
 
       <HeroImage>
@@ -54,5 +52,5 @@ export function HeroDetails({ hero }: HeroDetailsProps) {
         />
       </HeroImage>
     </HeroDetailsContainer>
-  )
+  );
 }
