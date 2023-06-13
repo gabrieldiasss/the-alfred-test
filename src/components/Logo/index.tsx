@@ -5,7 +5,7 @@ import { LogoStyle } from './styles'
 export function Logo() {
   return (
     <Link to={'/'}>
-      <LogoStyle src={LogoMarvel} alt="" />;
+      <LogoStyle src={LogoMarvel} alt="" />
     </Link>
   )
 }

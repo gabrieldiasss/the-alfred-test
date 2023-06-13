@@ -56,7 +56,7 @@ export function Hero() {
     api
       .get(`/characters/${id}`)
       .then((response) => setHero(response.data.data.results[0]))
-  }, [])
+  }, [id])
 
   useEffect(() => {
     api.get(`/characters/${id}/comics`).then((response) => {

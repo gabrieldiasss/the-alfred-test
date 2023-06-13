@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { HeroSearch } from '../Input'
 import { RegularText } from '../Typography'
