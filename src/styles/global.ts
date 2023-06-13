@@ -35,4 +35,8 @@ export const GlobalStyle = createGlobalStyle`
     svg {
         cursor: pointer;
     }
+
+    a {
+        text-decoration: none;
+    }
 `
