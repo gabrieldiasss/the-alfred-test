@@ -10,6 +10,12 @@ export const AutoCompleteContainer = styled.div`
   padding: 0 2rem;
   margin-top: 8rem;
   position: absolute;
+
+  z-index: 1;
+
+  @media (max-width: 500px) {
+    width: 80%;
+  }
 `
 
 export const AutoCompleteItem = styled.div`
@@ -19,6 +25,10 @@ export const AutoCompleteItem = styled.div`
   gap: 1rem;
   cursor: pointer;
   border-bottom: 1px solid ${({ theme }) => theme.colors['base-gray200']};
+
+  &:hover {
+    filter: brightness(0.9);
+  }
 
   img {
     width: 3rem;

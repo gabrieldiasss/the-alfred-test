@@ -17,33 +17,27 @@ export function FilteredListHeroes({
   handleChange,
 }: FilteredListHeroesProps) {
   return (
-    <>
-      <div style={{ cursor: 'pointer' }}>
-        <RegularText color="brand-red">
-          <FaUserNinja /> Ordenar por nome - A/Z
-          <Switch
-            checked={checked}
-            checkedIcon={false}
-            onChange={handleChange}
+    <div style={{ cursor: 'pointer' }}>
+      <RegularText color="brand-red">
+        <FaUserNinja /> Ordenar por nome - A/Z
+        <Switch checked={checked} checkedIcon={false} onChange={handleChange} />
+      </RegularText>
+      <RegularText color="brand-red">
+        {onlyFavorites ? (
+          <AiFillHeart
+            onClick={onRenderFavoriteHeroes}
+            size={24}
+            color="#FF1510"
           />
-        </RegularText>
-        <RegularText color="brand-red">
-          {onlyFavorites ? (
-            <AiFillHeart
-              onClick={onRenderFavoriteHeroes}
-              size={24}
-              color="#FF1510"
-            />
-          ) : (
-            <AiOutlineHeart
-              onClick={onRenderFavoriteHeroes}
-              size={24}
-              color="#FF1510"
-            />
-          )}
-          Somente favoritos
-        </RegularText>
-      </div>
-    </>
+        ) : (
+          <AiOutlineHeart
+            onClick={onRenderFavoriteHeroes}
+            size={24}
+            color="#FF1510"
+          />
+        )}
+        Somente favoritos
+      </RegularText>
+    </div>
   )
 }

@@ -12,6 +12,18 @@ export const HeroActions = styled.div`
 
   margin-bottom: 2rem;
 
+  @media (max-width: 500px) {
+    flex-direction: column;
+
+    div {
+      flex-direction: column;
+
+      > p {
+        margin-top: 1rem;
+      }
+    }
+  }
+
   div {
     display: flex;
     align-items: center;

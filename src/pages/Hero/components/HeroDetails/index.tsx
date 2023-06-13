@@ -20,6 +20,8 @@ interface HeroDetailsProps {
 }
 
 export function HeroDetails({ hero, lastRelease }: HeroDetailsProps) {
+  console.log(hero.description)
+
   return (
     <HeroDetailsContainer>
       <HeroInfo>
@@ -27,7 +29,12 @@ export function HeroDetails({ hero, lastRelease }: HeroDetailsProps) {
           <TitleText size="l">{hero.name}</TitleText>
           <HeartFavorite hero={hero} size={30} />
         </HeroHeader>
-        <RegularText size="l">{hero.description}</RegularText>
+        {hero.description === '' ? (
+          <RegularText size="l">Esse herói não possui descrição</RegularText>
+        ) : (
+          <RegularText size="l">{hero.description}</RegularText>
+        )}
+
         <ComicsAndMovies>
           <HeroStats
             title={'Quadrinhos'}

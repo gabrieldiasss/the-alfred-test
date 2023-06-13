@@ -11,7 +11,7 @@ export function SearchHero() {
       <TitleText size="l">EXPLORE O UNIVERSO</TitleText>
       <RegularText color="gray400">
         Mergulhe no dominínio deslumbrante de todos os personagens clássicos que
-        você ama - e aqueles que você descobrirá e breve!
+        você ama - e aqueles que você descobrirá em breve!
       </RegularText>
 
       <Input theme="red" />

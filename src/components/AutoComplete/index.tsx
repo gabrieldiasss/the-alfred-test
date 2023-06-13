@@ -1,15 +1,14 @@
-import { useEffect,  } from 'react'
-import { Link } from "react-router-dom";
-import { HeroSearch } from "../Input";
-import { RegularText } from "../Typography";
-import { AutoCompleteContainer, AutoCompleteItem } from "./styles";
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { HeroSearch } from '../Input'
+import { RegularText } from '../Typography'
+import { AutoCompleteContainer, AutoCompleteItem } from './styles'
 
 interface AutoCompleteProps {
-  heroesSearch: HeroSearch[];
+  heroesSearch: HeroSearch[]
 }
 
 export function AutoComplete({ heroesSearch }: AutoCompleteProps) {
-
   return (
     <AutoCompleteContainer>
       {heroesSearch.map((heroSearch) => (
@@ -26,5 +25,5 @@ export function AutoComplete({ heroesSearch }: AutoCompleteProps) {
         </Link>
       ))}
     </AutoCompleteContainer>
-  );
+  )
 }

@@ -21,6 +21,10 @@ export function LastReleases({ comics }: LastReleasesProps) {
             <RegularText>{comic.title}</RegularText>
           </ComicCard>
         ))}
+
+        {comics.length === 0 && (
+          <RegularText size="l">Nenhum lançamento encontrado =(</RegularText>
+        )}
       </ComicList>
     </LastReleasesContainer>
   )

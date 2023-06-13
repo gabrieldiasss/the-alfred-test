@@ -13,6 +13,10 @@ export const InputContainer = styled.div`
 `
 
 export const InputWrapper = styled.div<InputStyleProps>`
+  @media (max-width: 500px) {
+    width: 80%;
+  }
+
   width: 50%;
   padding: 1rem 2rem;
   border-radius: 8px;
