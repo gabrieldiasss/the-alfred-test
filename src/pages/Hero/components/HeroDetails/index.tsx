@@ -1,4 +1,4 @@
-import { RegularText, TitleText } from "@/components/Typography";
+import { RegularText, TitleText } from '@/components/Typography'
 import {
   ComicsAndMovies,
   HeroDetailsContainer,
@@ -6,17 +6,17 @@ import {
   HeroImage,
   HeroInfo,
   LastComic,
-} from "./styles";
-import { FaBook } from "react-icons/fa";
-import { BiMoviePlay } from "react-icons/bi";
-import { type IHeroDetails } from "../..";
-import { HeroStats } from "../HeroStats";
-import { HeartFavorite } from "@/components/HeartFavorite";
-import { Rating } from "../Rating";
+} from './styles'
+import { FaBook } from 'react-icons/fa'
+import { BiMoviePlay } from 'react-icons/bi'
+import { type IHeroDetails } from '../..'
+import { HeroStats } from '../HeroStats'
+import { HeartFavorite } from '@/components/HeartFavorite'
+import { Rating } from '../Rating'
 
 interface HeroDetailsProps {
-  hero: IHeroDetails;
-  lastRelease: string;
+  hero: IHeroDetails
+  lastRelease: string
 }
 
 export function HeroDetails({ hero, lastRelease }: HeroDetailsProps) {
@@ -30,17 +30,17 @@ export function HeroDetails({ hero, lastRelease }: HeroDetailsProps) {
         <RegularText size="l">{hero.description}</RegularText>
         <ComicsAndMovies>
           <HeroStats
-            title={"Quadrinhos"}
+            title={'Quadrinhos'}
             icon={<FaBook />}
             heroCount={hero.comics?.items.length}
           />
           <HeroStats
-            title={"Filmes"}
+            title={'Filmes'}
             icon={<BiMoviePlay />}
             heroCount={hero.series?.items.length}
           />
         </ComicsAndMovies>
-        {/* {Deixei o número da avaliação fixo, pois não encontrei na api */}
+        {/* { Deixei o número da avaliação fixo, pois não encontrei na api */}
         <Rating rating={4} />
         <LastComic>Último quadrinho: {lastRelease}</LastComic>
       </HeroInfo>
@@ -52,5 +52,5 @@ export function HeroDetails({ hero, lastRelease }: HeroDetailsProps) {
         />
       </HeroImage>
     </HeroDetailsContainer>
-  );
+  )
 }

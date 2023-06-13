@@ -9,23 +9,26 @@ import { FilteredListHeroes } from '../FilteredListHeroes'
 import { HeroCardSkeleton } from '../HeroCardSkeleton'
 import { Pagination } from '../Pagination'
 
-export interface Hero {
-  id: number
-  name: string
-  thumbnail: {
-    extension: string
-    path: string
-  }
+export interface IHeroesList {
+  results?: {
+    id: number
+    name: string
+    thumbnail: {
+      extension: string
+      path: string
+    }
+  }[]
+  total: number
 }
 
 const LIMIT = 20
 
 export function HeroesList() {
-  const [heroes, setHeroes] = useState<Hero[]>([])
+  const [heroes, setHeroes] = useState<IHeroesList>([] as any)
   const [onlyFavorite, setOnlyFavorites] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [offset, setOffset] = useState(0)
-  const [heroesTotal, setHeroesTotal] = useState(0)
+  const [checked, setChecked] = useState(true)
   const { heroesFavorite } = useHero()
 
   useEffect(() => {
@@ -34,22 +37,18 @@ export function HeroesList() {
         params: {
           limit: LIMIT,
           offset,
+          orderBy: checked ? 'name' : '-name',
         },
       })
       .then((response) => {
-        setHeroes(response.data.data.results)
-        setHeroesTotal(response.data.data.total)
+        setHeroes(response.data.data)
         setIsLoading(false)
       })
-  }, [offset])
+  }, [offset, checked])
 
-  /* const order = () => {
-    let newHeroes = [...heroes];
-
-    newHeroes.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
-
-    setHeroes(newHeroes);
-  }; */
+  function handleChange() {
+    setChecked(!checked)
+  }
 
   function handleRenderOnlyFavoriteHeroes(): void {
     setOnlyFavorites(!onlyFavorite)
@@ -60,13 +59,15 @@ export function HeroesList() {
       <HeroActions>
         <div>
           <RegularText color="gray200" size="l">
-            Encontrados {heroesTotal} heróis
+            Encontrados {heroes.total} heróis
           </RegularText>
         </div>
 
         <FilteredListHeroes
           onlyFavorites={onlyFavorite}
           onRenderFavoriteHeroes={handleRenderOnlyFavoriteHeroes}
+          checked={checked}
+          handleChange={handleChange}
         />
       </HeroActions>
 
@@ -86,7 +87,7 @@ export function HeroesList() {
           </>
         ) : (
           <>
-            {heroes.map((hero) => (
+            {heroes.results?.map((hero) => (
               <HeroCard key={hero.id} hero={hero} />
             ))}
           </>

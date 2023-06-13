@@ -1,8 +1,16 @@
 import { useNavigate } from 'react-router-dom'
 import { RegularText } from '../../../../components/Typography'
-import { type Hero } from '../HeroesList'
 import { HeroCardContainer, HeroInfo } from './styles'
 import { HeartFavorite } from '@/components/HeartFavorite'
+
+export interface Hero {
+  id: number
+  name: string
+  thumbnail: {
+    extension: string
+    path: string
+  }
+}
 
 interface HeroCardProps {
   hero: Hero
