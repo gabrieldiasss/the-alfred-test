@@ -18,11 +18,11 @@ export function FilteredListHeroes({
 }: FilteredListHeroesProps) {
   return (
     <div style={{ cursor: 'pointer' }}>
-      <RegularText color="brand-red">
+      <RegularText size="l" color="brand-red">
         <FaUserNinja /> Ordenar por nome - A/Z
         <Switch checked={checked} checkedIcon={false} onChange={handleChange} />
       </RegularText>
-      <RegularText color="brand-red">
+      <RegularText size="l" color="brand-red">
         {onlyFavorites ? (
           <AiFillHeart
             onClick={onRenderFavoriteHeroes}
