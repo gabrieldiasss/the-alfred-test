@@ -3,7 +3,7 @@ import { styled } from 'styled-components'
 export const AutoCompleteContainer = styled.div`
   background-color: ${({ theme }) => theme.colors['base-brand-red-light']};
   width: 50%;
-  height: 300px;
+  min-height: max-content;
   overflow: hidden;
   overflow-y: auto;
   border-radius: 8px;
@@ -11,10 +11,18 @@ export const AutoCompleteContainer = styled.div`
   margin-top: 8rem;
   position: absolute;
 
+  padding-top: 2rem;
+
   z-index: 1;
 
   @media (max-width: 500px) {
     width: 80%;
+  }
+
+  svg {
+    position: absolute;
+    right: 20px;
+    top: 20px;
   }
 `
 

@@ -33,6 +33,10 @@ export function Input({ theme }: InputProps) {
       })
   }, [search])
 
+  function handleCloseAutoComplete() {
+    setSearch('')
+  }
+
   return (
     <InputContainer>
       <InputWrapper variant={theme}>
@@ -44,7 +48,12 @@ export function Input({ theme }: InputProps) {
         />
       </InputWrapper>
 
-      {search !== '' && <AutoComplete heroesSearch={heroesSearch} />}
+      {search !== '' && (
+        <AutoComplete
+          onClose={handleCloseAutoComplete}
+          heroesSearch={heroesSearch}
+        />
+      )}
     </InputContainer>
   )
 }
